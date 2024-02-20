@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <!-- <link rel="shortcut icon" href="../images/logo.jpg" type="image/x-icon"> -->
+
+  <title> Ashmawy Mobile Store</title>
+
+
+  <!-- bootstrap core css -->
+ <%- include('./Components/cssAndBootStarpSection.ejs') %>
+  <!-- End Of css bootstrap core css -->
+
+</head>
+
+<body>
+
+  <div class="hero_area">
+ 
+    <!-- header section strats -->
+    <%- include('./Components/header.ejs') %>
+    <!-- end header section -->
+    <!-- slider section -->
+    <%- include('./Components/slider.ejs') %>
+    <!-- end slider section -->
+  </div>
+
+  <!-- shop section -->
+
+  <%- include('./Components/shop.ejs',{title:'Iphone' ,link:'/iphone', myProdut:"iphone"}) %>
+  <%- include('./Components/shop.ejs',{title:'Andriod',link:'/android',myProdut:"andriod"}) %>
+  <%- include('./Components/shop.ejs',{title:'Accessories',link:'/accessories',myProdut:"accessories"}) %> 
+  <%- include('./Components/shop.ejs',{title:'Used',link:'/used',myProdut:"used"}) %> 
+  <%- include('./Components/shop.ejs',{title:'Airbods & SmartWatches',link:'/airpodAndsmartwatch',myProdut:"airpodAndSmartWatch"}) %> 
+  
+  <!-- footer section -->
+      <%- include('./Components/footer.ejs') %>
+  <!-- footer section -->
+
+  <!-- Start Java Scrpti-->
+  <%- include('./Components/javaScriptSection.ejs') %>
+   <!-- End Java Scrpti-->
+
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<section class="shop_section layout_padding">
+  <div class="container">
+    <div class="heading_container heading_center">
+      <h2>
+        <%= typeof title != 'undefined' ? title : 'default' %>
+      </h2>
+    </div>
+    <% var myProdut; %>
+    <div class="row">
+   
+      <% let counter = 0; %>
+          <% product.forEach(function(element) { %>
+           <% if (element.category === myProdut && counter < 4 ) { %>
+     
+            
+            <div class="col-md-6 ">
+              <div class="box">
+                <a href="/productdetails/<%= element.id %>">
+                  <div class="img-box">
+                    <img src="<%= element.img %>" alt="">
+                  </div>
+                  <div class="detail-box">
+                    <h6>
+                      <%= element.Name %>
+                    </h6>
+                    <% if (element.priceDisscount) { %>
+                    <h6>
+                      Price Disscount:
+                      <span>
+                        <%= element.priceDisscount %>
+                      </span>
+                    </h6>
+                    <h6>
+                      Price:
+                      <span>
+                       <s> <%= element.price %> </s>
+                      </span>
+                    </h6>
+                    <% } else {%>
+                    <h6>
+                      Price :
+                      <span>
+                        <%= element.price %>
+                      </span>
+                    </h6>
+                    <% } %>
+                  </div>
+                  <% if (element.priceDisscount) { %>
+                  <div class="new">
+                    <span>
+                      خصم
+                    </span>
+                  </div>
+                  <% } %>
+                  <% if (element.stock === false) { %>
+                    <div class="new" style=" width:200px; background-color: brown;">
+                      <span>
+                        نفذ من المخزون
+                      </span>
+                    </div>
+                  <% } %>
+                </a>
+              </div>
+            </div>
+                 <% counter++; %>
+            <% } %>
+          <% }); %>
+  
+    </div>
+    <div class="btn-box">
+      <a href=" <%= typeof link != 'undefined' ? link : '/views/iphone' %>">
+        View All
+      </a>
+    </div>
+  </div>
+</section>

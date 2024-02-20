@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="../images/logo.jpg" type="image/x-icon">
+
+  <title> Ashmawy Mobile Store</title>
+
+  <!-- bootstrap core css -->
+ <%- include('./Components/cssAndBootStarpSection.ejs') %>
+  <!-- End Of css bootstrap core css -->
+
+</head>
+
+<body>
+
+
+
+    <!-- header section strats -->
+    <%- include('./Components/header.ejs') %>
+ 
+
+  <!-- shop section -->
+  <section class="shop_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          Used
+        </h2>
+      </div>
+      <div class="row">
+        <% getUsed.forEach(elem => { %>
+          
+          
+        
+            
+          <div class="col-md-6 ">
+            <div class="box">
+              <a href="/productdetails/<%= elem.id %>">
+                <div class="img-box">
+                  <img src="<%= elem.img %>" alt="">
+                </div>
+                <div class="detail-box">
+                  <h6>
+                    <%= elem.Name %>
+                  </h6>
+
+                <% if (elem.priceDisscount) { %>
+                  <h6>
+                    Disscount:
+                    <span>
+                        <%= elem.priceDisscount %>
+                    </span>
+                  </h6>
+                  <h6>
+                    Price:
+                    <span>
+                      <s>
+                      <%= elem.price %>
+                    </s>
+                    </span>
+                  </h6>
+               
+                
+                <% } else { %>
+                  <h6>
+                    Price:
+                    <span>
+                      <%= elem.price %>
+                    </span>
+                  </h6>
+                  <% } %>
+                 
+                    
+               
+                
+                </div>
+                <% if (elem.priceDisscount) { %>
+                 
+              
+                <div class="new">
+                  <span>
+                    خصم
+                  </span>
+                </div>
+                <% } %>
+                <% if (elem.stock === false) { %>
+                  <div class="new" style=" width:200px; background-color: brown;">
+                    <span>
+                      نفذ من المخزون
+                    </span>
+                  </div>
+                <% } %>
+              </a>
+            </div>
+          </div>
+          
+          <% }) %>
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- end shop section -->
+
+
+
+  <!-- footer section -->
+      <%- include('./Components/footer.ejs') %>
+  <!-- footer section -->
+
+  <!-- Start Java Scrpti-->
+  <%- include('./Components/javaScriptSection.ejs') %>
+   <!-- End Java Scrpti-->
+
+</body>
+
+</html>

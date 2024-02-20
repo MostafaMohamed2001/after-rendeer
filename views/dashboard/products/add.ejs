@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="auto">
+  <head>
+    <script src="../js/color-modes.js"></script>
+    <link
+      rel="stylesheet"
+      href="../bootstrap-icons-1.10.5/font/bootstrap-icons.min.css"
+    />
+    <link rel="shortcut icon" href="../images/logo.jpg" type="image/x-icon">
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Hugo 0.112.5" />
+    <title>Add Product</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="../css/dark-light.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="../css/sidebars.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/myStyle.css" />
+  </head>
+  <body>
+    
+    <%- include('./../Components/dark-light.ejs') %>
+    <main class="d-flex flex-nowrap">
+ <%- include('./../Components/sidebar.ejs',{currentPage:"addProduct"}) %>
+
+      <section class="w-100">
+        <%- include('./../Components/navbar'); %>
+
+        <form  method="post" action="add-Product" class="mx-0 row gx-3 gy-4 mt-3">
+          <div class="col-md-6">
+            <label for="inputfirstName4" class="form-label">Product Name:</label>
+            <input
+              placeholder="Enter Product here ..."
+              type="text"
+              class="form-control"
+              id="inputfirstName4"
+              name="Name"
+            />
+          </div>
+          <div class="col-md-6">
+            <label for="price" class="form-label" >Price</label>
+            <input
+              placeholder="Enter Price Here"
+              type="text"
+              class="form-control"
+              id="price"
+              name="price"
+            />
+          </div>
+          <div class="col-md-6">
+            <label for="priceDisscount" class="form-label" >Price Disscount </label>
+            <input
+              placeholder="Enter Price Here"
+              type="text"
+              class="form-control"
+              id="priceDisscount"
+              name="priceDisscount"
+            />
+          </div>
+
+
+          <div class="col-md-6">
+            <label for="image" class="form-label" 
+            >Image:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="image"
+              name="img"
+            />
+          </div>
+          <div>
+            <div class="col-md-6">
+              <label for="inputGender" class="form-label">Category:</label>
+              <select id="inputGender" class="form-select" name="category">
+                <option selected hidden disabled>Choose here ...</option>
+                <option>iphone</option>
+                <option>andriod</option>
+                <option>accessories</option>
+                <option>used</option>
+                <option>airpodAndSmartWatch</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-md-10">
+            <label for="productDetails" class="form-label" >Product Details</label>
+            <textarea name="productDetails" id="description" cols="70" rows="14" class="form-control"  ></textarea>
+          </div>
+ 
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </section>
+    </main>
+  
+    <%- include('./../Components/jsCode.ejs') %>
+
+  </body>
+</html>

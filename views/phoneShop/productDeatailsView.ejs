@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="../images/logo.jpg" type="image/x-icon">
+
+  <title> Ashmawy Mobile Store</title>
+
+
+  <!-- bootstrap core css -->
+ <%- include('./Components/cssAndBootStarpSection.ejs') %>
+  <!-- End Of css bootstrap core css -->
+
+</head>
+
+<body>
+
+
+
+    <!-- header section strats -->
+    <%- include('./Components/header.ejs') %>
+ 
+
+  <!-- shop section -->
+<div class="" dir="rtl">
+  <div class="container productRow">
+    <div class="row ">
+      <div class="col-sm-12 col-lg-4 imgProduct">
+        <img src="<%= getProd.img %>" alt="" height="300px" width="75%">
+      </div>
+      <!-- // image -->
+      <div class="col-sm-12 col-lg-8 btnProdu"> 
+        <div class="col-sm-12 col-lg-8 titleProduct">
+          <h3> <%= getProd.Name %> </h3>
+        </div>
+        <% if (getProd.priceDisscount) { %>
+          <div class="titleprice">
+           <s><p> <%= getProd.price %> </s> <span>ج.م</span></p>
+            <p class="pricediss">
+              <%= getProd.priceDisscount %> <span>ج.م</span>
+            </p>
+           
+            
+          </div>
+        <% } else {%>
+          <div class="titleprice">
+            <p> <%= getProd.price %> <span>ج.م</span></p>
+          </div>
+          <% } %>
+          <% if (getProd.stock === true) { %>
+           
+       
+        <div class="col-sm-10 col-lg-6 productWhatsBtn">
+          <a class="btttn" href="https://wa.me/+201010889735?text=https://ashmawy-mobile-phone.onrender.com/productdetails/<%=getProd.id %>" >اطلب الان whats app </a>
+          <% }else { %>
+          <div class="col-sm-10 col-lg-6 productWhatsBtnFalse">
+            <p class="btttn"  >اطلب الان whats app </p>
+            <p class="stockkk">نفذ من المخزون</ح>
+            <% } %>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-lg-12 productDeatails">
+     <h5 class="proboxdet">  :  تفاصيل المنتج</h5>
+     <pre class="detAll">
+      <%= getProd.productDetails %>
+     </pre>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-lg-12 productDeatails">
+      <% if (getProd.category === "used") { %>
+        <a href="/used">شاهد كل المنتجات من هنا </a>
+      <% } else if(getProd.category === "iphone"){ %>
+        <a href="/iphone">شاهد كل المنتجات من هنا </a>
+        <% } else if(getProd.category === "andriod"){ %>
+          <a href="/android">شاهد كل المنتجات من هنا </a>
+          <% } else if(getProd.category === "accessories") { %>
+            <a href="/accessories">شاهد كل المنتجات من هنا </a>
+            <% } else { %>
+              <a href="/airpodAndsmartwatch">شاهد كل المنتجات من هنا </a>
+              <% } %>
+
+    </div>
+  </div>
+</div>
+
+<hr class="devide">
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-lg-12 productDeatails">
+<p class="sameProd" >منتجات اخري</p>
+    </div>
+  </div>
+</div>
+<section class="shop_section layout_padding">
+  <div class="container">
+
+    <div class="row">
+
+        
+        
+      <% getAllProduct.slice(0, 3).forEach(elem => { %>
+          
+        <div class="col-md-4 ">
+          <div class="box">
+            <a href="/productdetails/<%= elem.id %>">
+              <div class="img-box">
+                <img src="<%= elem.img %>" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  <%= elem.Name %>
+                </h6>
+
+              <% if (elem.priceDisscount) { %>
+                <h6>
+                  Disscount:
+                  <span>
+                      <%= elem.priceDisscount %>
+                  </span>
+                </h6>
+                <h6>
+                  Price:
+                  <span>
+                    <s>
+                    <%= elem.price %>
+                  </s>
+                  </span>
+                </h6>
+             
+              
+              <% } else { %>
+                <h6>
+                  Price:
+                  <span>
+                    <%= elem.price %>
+                  </span>
+                </h6>
+                <% } %>
+               
+                  
+             
+              
+              </div>
+              <% if (elem.priceDisscount) { %>
+               
+            
+              <div class="new">
+                <span>
+                  خصم
+                </span>
+              </div>
+              <% } %>
+            </a>
+          </div>
+        </div>
+        
+        <% }) %>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- end shop section -->
+
+
+
+  <!-- footer section -->
+      <%- include('./Components/footer.ejs') %>
+  <!-- footer section -->
+
+  <!-- Start Java Scrpti-->
+  <%- include('./Components/javaScriptSection.ejs') %>
+   <!-- End Java Scrpti-->
+
+</body>
+
+</html>
